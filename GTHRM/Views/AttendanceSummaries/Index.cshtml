@@ -1,0 +1,130 @@
+﻿@model IEnumerable<GTHRM.Models.AttendanceSummary>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Index</h1>
+
+@*<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>*@
+
+<div class="row">
+    <div class="col-md-2">
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+    </div>
+    
+    <div class="col-md-10">
+        <form asp-action="ProcessMonthly" method="post" class="form-inline">
+            <div class="form-inline">
+                <label for="year">Year:</label>
+                <select id="year" name="Year" ></select>
+                
+                <label for="month">Month:</label>
+                <select id="month" name="Month" >
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="2">November</option>
+                    <option value="12">December</option>
+                    <!-- Add options for the rest of the months -->
+                </select>
+                <input type="submit" value="Process Status" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.month)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.present)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.late)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.absent)
+            </th>
+            
+            @*<th class="text-center">Actions</th>*@
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.month)
+                </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.present)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.late)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.absent)
+            </td>
+            
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
+
+<script>
+    // Get the current year
+    var currentYear = new Date().getFullYear();
+
+    // Set the range of years
+    var startYear = 2010;
+    var endYear = currentYear;
+
+    // Generate the year options dynamically
+    var yearDropdown = document.getElementById("year");
+
+    for (var year = startYear; year <= endYear; year++) {
+        var option = document.createElement("option");
+        option.value = year;
+        option.text = year;
+        yearDropdown.appendChild(option);
+    }
+</script>
+
+
+
+

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Company>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@foreach (var item in Model)
+{
+    <a asp-action="SetCompany" asp-route-comId="@item.ComId" class="btn btn-primary">@item.CompanyName </a>
+}
+@if (Context.Request.Cookies.ContainsKey("comId"))
+{
+    <div>
+        selected Company: @Context.Request.Cookies["comName"]
+    </div>
+    
+}

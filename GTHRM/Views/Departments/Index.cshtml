@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GTHRM.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Department List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.CompanyName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DeptId" class="btn btn-warning">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DeptId" class="btn btn-success">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DeptId" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model GTHRM.Models.AttendanceSummary
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AttendanceSummary</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ComId" />
+            <input type="hidden" asp-for="EmpId" />
+            <input type="hidden" asp-for="year" />
+            <input type="hidden" asp-for="month" />
+            <div class="form-group">
+                <label asp-for="present" class="control-label"></label>
+                <input asp-for="present" class="form-control" />
+                <span asp-validation-for="present" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="late" class="control-label"></label>
+                <input asp-for="late" class="form-control" />
+                <span asp-validation-for="late" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="absent" class="control-label"></label>
+                <input asp-for="absent" class="form-control" />
+                <span asp-validation-for="absent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GTHRM.Models.Salary>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gross)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.absentAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.payableAmount)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.paidAmount)
+            </th>
+            
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.EmpCode)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gross)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.absentAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payableAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paidAmount)
+            </td>
+            
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>

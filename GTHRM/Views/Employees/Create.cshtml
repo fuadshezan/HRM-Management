@@ -1,0 +1,81 @@
+﻿@model GTHRM.Models.Employee
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="EmpCode" class="control-label"></label>
+                <input asp-for="EmpCode" class="form-control" />
+                <span asp-validation-for="EmpCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpName" class="control-label"></label>
+                <input asp-for="EmpName" class="form-control" />
+                <span asp-validation-for="EmpName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeptId" class="control-label"></label>
+                <select id="DeptId" name="DeptId" class="form-control" asp-items="ViewBag.Department">
+                    <option disabled selected>--Select Department--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DesigId" class="control-label"></label>
+                <select asp-for="DesigId" class="form-control" asp-items="ViewBag.Designation">
+                    <option disabled selected>--Select Designation--</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ShiftId" class="control-label"></label>
+                <select asp-for="ShiftId" class="form-control" asp-items="ViewBag.Shift">
+                    <option disabled selected>--Select Shift--</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="gender" class="control-label"></label>
+                <select asp-for="gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+                    <option disabled selected>--Select Gender--</option>
+                </select>
+                <span asp-validation-for="gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gross" class="control-label"></label>
+                <input asp-for="Gross" class="form-control" />
+                <span asp-validation-for="Gross" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dtJoin" class="control-label"></label>
+                <input asp-for="dtJoin" class="form-control" />
+                <span asp-validation-for="dtJoin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

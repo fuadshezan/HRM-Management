@@ -1,0 +1,48 @@
+﻿@model GTHRM.Models.AttendanceSummary
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AttendanceSummary</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.present)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.present)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.late)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.late)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.absent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.absent)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.CompanyName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Employee.EmpCode)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
